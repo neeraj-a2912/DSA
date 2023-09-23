@@ -1,3 +1,4 @@
+package BinarySearch;
 public class FloorAndCeilInSortedArray {
     public static int findFloor(long arr[], int n, long x)
     {
