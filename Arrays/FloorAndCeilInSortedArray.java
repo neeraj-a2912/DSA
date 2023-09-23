@@ -1,5 +1,5 @@
 public class FloorAndCeilInSortedArray {
-    static int findFloor(long arr[], int n, long x)
+    public static int findFloor(long arr[], int n, long x)
     {
         int high = n - 1, low = 0, mid, floor = -1;
         while (low <= high) {
@@ -16,7 +16,7 @@ public class FloorAndCeilInSortedArray {
         return (int) floor;
     }
     
-    static int findCeil(long arr[], int n, long x)
+    public static int findCeil(long arr[], int n, long x)
     {
         int high = n-1, low=0, mid, ceil = -1;
         while(low<=high){
