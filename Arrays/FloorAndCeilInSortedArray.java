@@ -13,7 +13,7 @@ public class FloorAndCeilInSortedArray {
                 low = mid + 1;
             }
         }
-        return (int) floor;
+        return floor;
     }
     
     public static int findCeil(long arr[], int n, long x)
@@ -31,7 +31,7 @@ public class FloorAndCeilInSortedArray {
                 low = mid+1;
             }
         }
-        return (int) floor;
+        return ceil;
     }
 
 }
