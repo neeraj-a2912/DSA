@@ -6,7 +6,6 @@ public class GraphDS {
         int source;
         int destination;
         int weight;
-
         Edge(int source, int destination, int weight) {
             this.source = source;
             this.destination = destination;
@@ -48,33 +47,41 @@ public class GraphDS {
         Queue<Integer> q = new LinkedList<>();
         boolean[] visited = new boolean[V];
         q.add(0);
-
         while (!q.isEmpty()) {
             int curr = q.poll();
             if (!visited[curr]) {
-
                 System.out.print(curr + " ");
                 visited[curr] = true;
-
                 for (int i = 0; i < graph[curr].size(); i++) {
                     Edge e = graph[curr].get(i);
                     q.add(e.destination);
                 }
-
             }
+        }
+    }
+
+    public static void dfs(ArrayList<Edge> graph[], int curr, boolean[] visited) {
+        System.out.print(curr + " ");
+        visited[curr] = true;
+
+        for (int i = 0; i < graph[curr].size(); i++) {
+            Edge e = graph[curr].get(i);
+            if(!visited[e.destination])
+                dfs(graph, e.destination, visited);
         }
     }
     public static void main(String[] args) {
         int V = 7;
         ArrayList<Edge> graph[] = new ArrayList[V];
         createGraph(graph);
+        boolean[] visited = new boolean[V];
 
         // for (int i = 0; i < graph[2].size(); i++) {
         //     Edge e = graph[2].get(i);
         //     System.out.println(e.destination + " " + e.weight);
         // }
-        bfs(graph, V);
-        System.out.println();
-
+        // bfs(graph, V);
+        // System.out.println();
+        dfs(graph, 0, visited);
     }
 }
