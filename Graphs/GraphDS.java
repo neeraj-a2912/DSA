@@ -5,10 +5,13 @@ public class GraphDS {
     static class Edge {
         int source;
         int destination;
+        int weight;
 
-        Edge(int source, int destination) {
+        Edge(int source, int destination, int weight) {
             this.source = source;
             this.destination = destination;
+            this.weight = weight;
+
         }
     }
 
@@ -17,17 +20,17 @@ public class GraphDS {
             graph[i] = new ArrayList<Edge>();
         }
 
-        graph[0].add(new Edge(0, 2));
+        graph[0].add(new Edge(0, 2, 2));
 
-        graph[1].add(new Edge(1, 2));
-        graph[1].add(new Edge(1, 3));
+        graph[1].add(new Edge(1, 2, 10));
+        graph[1].add(new Edge(1, 3, 0));
 
-        graph[2].add(new Edge(2, 0));
-        graph[2].add(new Edge(2, 1));
-        graph[2].add(new Edge(2, 3));
+        graph[2].add(new Edge(2, 0,2));
+        graph[2].add(new Edge(2, 1, 10));
+        graph[2].add(new Edge(2, 3, -1));
 
-        graph[3].add(new Edge(3, 1));
-        graph[3].add(new Edge(3, 2));
+        graph[3].add(new Edge(3, 1, 0));
+        graph[3].add(new Edge(3, 2, -1));
     }
     
     public static void main(String[] args) {
@@ -37,7 +40,7 @@ public class GraphDS {
 
         for (int i = 0; i < graph[2].size(); i++) {
             Edge e = graph[2].get(i);
-            System.out.print(e.destination+" ");
+            System.out.println(e.destination+" "+e.weight);
         }
     }
 }
